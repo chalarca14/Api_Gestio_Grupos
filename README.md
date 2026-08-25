@@ -108,14 +108,3 @@ uvicorn app.main:app --reload
 * **Seguimiento:** `/asistencias`, `/notificaciones`
 
 ```
-
----
-
-Para subir la actualización a tu repositorio, ejecuta en la terminal:
-
-```bash
-git add README.md
-git commit -m "docs: actualizar README.md con la nueva estructura de 10 tablas"
-git push origin main
-
-```
