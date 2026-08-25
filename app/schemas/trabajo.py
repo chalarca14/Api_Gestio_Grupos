@@ -1,26 +1,24 @@
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel
 from datetime import datetime
 from typing import Optional
 
-class TrabajoCrear(BaseModel):
+class TrabajoBase(BaseModel):
     titulo: str
-    descripcion: str
-    fecha_limite: datetime
+    descripcion: Optional[str] = None
+    fecha_entrega: datetime
 
-class TrabajoEntregar(BaseModel):
-    entregable: str
+class TrabajoCreate(TrabajoBase):
+    grupo_id: int
 
-class TrabajoCertificarEstudiante(BaseModel):
-    estudiante_id: int
-    estado: str  # "entregado" o "no entregado"
+class TrabajoUpdate(BaseModel):
+    titulo: Optional[str] = None
+    descripcion: Optional[str] = None
+    fecha_entrega: Optional[datetime] = None
 
-class TrabajoRespuesta(BaseModel):
+class TrabajoOut(TrabajoBase):
     id: int
     grupo_id: int
-    titulo: str
-    descripcion: str
-    fecha_limite: datetime
-    estado: str
-    entregable: Optional[str] = None
+    creado_en: datetime
 
-    model_config = ConfigDict(from_attributes=True)
+    class Config:
+        from_attributes = True

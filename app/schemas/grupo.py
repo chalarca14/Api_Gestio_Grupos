@@ -1,17 +1,23 @@
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel
+from datetime import datetime
+from typing import Optional
 
 class GrupoBase(BaseModel):
     nombre: str
-
-class GrupoCrear(GrupoBase):
-    pass
-
-class UnirseGrupo(BaseModel):
     codigo: str
 
-class GrupoRespuesta(GrupoBase):
+class GrupoCreate(GrupoBase):
+    instructor_id: Optional[int] = None
+
+class GrupoUpdate(BaseModel):
+    nombre: Optional[str] = None
+    codigo: Optional[str] = None
+    instructor_id: Optional[int] = None
+
+class GrupoOut(GrupoBase):
     id: int
-    codigo: str
-    instructor_id: int
+    instructor_id: Optional[int] = None
+    creado_en: datetime
 
-    model_config = ConfigDict(from_attributes=True)
+    class Config:
+        from_attributes = True
