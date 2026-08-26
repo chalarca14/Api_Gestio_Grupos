@@ -1,6 +1,6 @@
-from pydantic import BaseModel
 from datetime import datetime
 from typing import Optional
+from pydantic import BaseModel
 
 class NotificacionBase(BaseModel):
     titulo: str
@@ -9,11 +9,14 @@ class NotificacionBase(BaseModel):
 class NotificacionCreate(NotificacionBase):
     usuario_id: int
 
+class NotificacionUpdate(BaseModel):
+    leida: Optional[bool] = None
+
 class NotificacionOut(NotificacionBase):
     id: int
     usuario_id: int
     leida: bool
-    creado_en: datetime
+    fecha_creacion: datetime
 
     class Config:
         from_attributes = True

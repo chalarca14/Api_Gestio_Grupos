@@ -1,6 +1,6 @@
-from pydantic import BaseModel
 from datetime import datetime
 from typing import Optional
+from pydantic import BaseModel
 
 class TrabajoBase(BaseModel):
     titulo: str
@@ -18,7 +18,6 @@ class TrabajoUpdate(BaseModel):
 class TrabajoOut(TrabajoBase):
     id: int
     grupo_id: int
-    creado_en: datetime
 
     class Config:
         from_attributes = True

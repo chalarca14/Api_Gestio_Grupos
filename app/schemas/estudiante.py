@@ -1,6 +1,5 @@
-from pydantic import BaseModel
 from typing import Optional
-from app.schemas.usuario import UsuarioOut
+from pydantic import BaseModel
 
 class EstudianteBase(BaseModel):
     codigo_estudiantil: str
@@ -16,7 +15,6 @@ class EstudianteUpdate(BaseModel):
 class EstudianteOut(EstudianteBase):
     id: int
     usuario_id: int
-    usuario: Optional[UsuarioOut] = None
 
     class Config:
         from_attributes = True
