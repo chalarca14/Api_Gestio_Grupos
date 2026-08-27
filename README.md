@@ -1,4 +1,3 @@
-Aquí tienes el archivo **`README.md`** completamente actualizado para la raíz de tu proyecto `api_gestion_grupos`. Incluye la estructura del proyecto, instrucciones de instalación, ejecución y la tabla completa de los 44 endpoints organizados por módulo.
 
 ---
 
